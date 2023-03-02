@@ -21,10 +21,20 @@ const Body = () => {
         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=24.585445&lng=73.712479&page_type=DESKTOP_WEB_LISTING"
       );
       let data = await res.json();
-      setFilterRestaurant(data?.data?.cards[2]?.data?.data?.cards);
-      setRestaurantData(data?.data?.cards[2]?.data?.data?.cards);
+      setFilterRestaurant(
+        data?.data?.cards[2]?.data?.data?.cards ||
+          data?.data?.cards[0]?.data?.data?.cards
+      );
+      setRestaurantData(
+        data?.data?.cards[2]?.data?.data?.cards ||
+          data?.data?.cards[0]?.data?.data?.cards
+      );
     } catch (error) {
-      console.log("API Call error");
+      console.log({
+        errorType: "API",
+        url: "https://www.swiggy.com/dapi/restaurants/list/v5?lat=24.585445&lng=73.712479&page_type=DESKTOP_WEB_LISTING",
+        msg: "Error in API call",
+      });
     }
   }
 

@@ -1,5 +1,5 @@
 const Footer = () => (
-  <div className="w-full h-10 bg-teal-200 mt-4 flex justify-center items-center">
+  <div className="w-full h-10 bg-teal-200 flex justify-center items-center">
     <span className="flex">
       Made with
       <span className="mx-2">
